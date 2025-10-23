@@ -14,7 +14,7 @@ const config: QuartzConfig = {
     analytics: {
       provider: "plausible",
     },
-    baseUrl: "https://taimourz.github.io/myspace/",
+    baseUrl: "https://taimourz.github.io/myspace",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",
     theme: {
@@ -67,7 +67,16 @@ const config: QuartzConfig = {
       Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
       Plugin.GitHubFlavoredMarkdown(),
       Plugin.TableOfContents(),
-      Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
+      Plugin.CrawlLinks({
+            markdownLinkResolution: "shortest",
+            rewriteUrls: (url: string) => {
+              if (url.startsWith("http://") || url.startsWith("https://") || url.startsWith("#")) {
+                return url
+              }
+              const trimmed = url.replace(/^\/+/, "")
+              return `/myspace/${trimmed}`              
+            }
+          }),
       Plugin.Description(),
       Plugin.Latex({ renderEngine: "katex" }),
     ],

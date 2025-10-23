@@ -1,3 +1,0 @@
----
-title: "Quartz Showcase"
----
