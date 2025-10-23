@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+      <title>🧑‍💻 My Space</title>
+      <link>https://https://taimourz.github.io/myspace/</link>
+      <description>Last 10 notes on 🧑‍💻 My Space</description>
+      <generator>Quartz -- quartz.jzhao.xyz</generator>
+      <item>
+    <title>DDIA Chapter 1</title>
+    <link>https://https://taimourz.github.io/myspace/posts/ddiachapter1</link>
+    <guid>https://https://taimourz.github.io/myspace/posts/ddiachapter1</guid>
+    <description><![CDATA[ rest of the text. ]]></description>
+    <pubDate>Fri, 24 Oct 2025 19:00:00 GMT</pubDate>
+  </item><item>
+    <title>projects</title>
+    <link>https://https://taimourz.github.io/myspace/projects</link>
+    <guid>https://https://taimourz.github.io/myspace/projects</guid>
+    <description><![CDATA[  ]]></description>
+    <pubDate>Thu, 23 Oct 2025 19:25:18 GMT</pubDate>
+  </item><item>
+    <title>test1</title>
+    <link>https://https://taimourz.github.io/myspace/notes/test1</link>
+    <guid>https://https://taimourz.github.io/myspace/notes/test1</guid>
+    <description><![CDATA[ will addd schort notes here later on. ]]></description>
+    <pubDate>Thu, 23 Oct 2025 19:25:18 GMT</pubDate>
+  </item><item>
+    <title>Taimour Afzal</title>
+    <link>https://https://taimourz.github.io/myspace/</link>
+    <guid>https://https://taimourz.github.io/myspace/</guid>
+    <description><![CDATA[  My name is Taimour Afzal. I’m a software/infrastructure engineer, and am at my happiest when I’m building something cool. ]]></description>
+    <pubDate>Wed, 22 Oct 2025 19:00:00 GMT</pubDate>
+  </item><item>
+    <title>Weather app</title>
+    <link>https://https://taimourz.github.io/myspace/projects/weatherapp</link>
+    <guid>https://https://taimourz.github.io/myspace/projects/weatherapp</guid>
+    <description><![CDATA[ github.com/taimourz/weatherapp Here I will add details about the weatherapp. ]]></description>
+    <pubDate>Wed, 22 Oct 2025 19:00:00 GMT</pubDate>
+  </item><item>
+    <title>Projects</title>
+    <link>https://https://taimourz.github.io/myspace/projects/</link>
+    <guid>https://https://taimourz.github.io/myspace/projects/</guid>
+    <description><![CDATA[ I love making things! I write about them here. ]]></description>
+    <pubDate>Thu, 31 Aug 2023 19:00:00 GMT</pubDate>
+  </item>
+    </channel>
+  </rss>
