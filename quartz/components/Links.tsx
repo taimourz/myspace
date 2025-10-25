@@ -30,7 +30,7 @@ export default ((userOpts?: Partial<Options>) => {
             <i>where I write about my adventures</i>
           </li>
           <li>
-            <h3 style={{marginTop: 0, marginBottom: 0}}><a href="/myspace/posts">Posts</a></h3>
+            <h3 style={{marginTop: 0, marginBottom: 0}}><a href="/myspace/blog">Blog</a></h3>
             <i>my longer form thoughts</i>
           </li>
           <li>
