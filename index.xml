@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
     <channel>
-      <title>🧑‍💻 My Space</title>
+      <title>My Space</title>
       <link>https:///myspace</link>
-      <description>Last 10 notes on 🧑‍💻 My Space</description>
+      <description>Last 10 notes on My Space</description>
       <generator>Quartz -- quartz.jzhao.xyz</generator>
       <item>
-    <title>DDIA Chapter 1</title>
-    <link>https:///myspace/posts/ddiachapter1</link>
-    <guid>https:///myspace/posts/ddiachapter1</guid>
-    <description><![CDATA[ rest of the text. ]]></description>
-    <pubDate>Fri, 24 Oct 2025 19:00:00 GMT</pubDate>
-  </item><item>
-    <title>projects</title>
-    <link>https:///myspace/projects</link>
-    <guid>https:///myspace/projects</guid>
-    <description><![CDATA[  ]]></description>
-    <pubDate>Thu, 23 Oct 2025 21:49:59 GMT</pubDate>
-  </item><item>
-    <title>test1</title>
-    <link>https:///myspace/notes/test1</link>
-    <guid>https:///myspace/notes/test1</guid>
-    <description><![CDATA[ will addd schort notes here later on. ]]></description>
-    <pubDate>Thu, 23 Oct 2025 21:49:59 GMT</pubDate>
-  </item><item>
     <title>Taimour Afzal</title>
     <link>https:///myspace/</link>
     <guid>https:///myspace/</guid>
     <description><![CDATA[  My name is Taimour Afzal. I’m a software/infrastructure engineer, and am at my happiest when I’m building something cool. ]]></description>
     <pubDate>Wed, 22 Oct 2025 19:00:00 GMT</pubDate>
   </item><item>
-    <title>Weather app</title>
-    <link>https:///myspace/projects/weatherapp</link>
-    <guid>https:///myspace/projects/weatherapp</guid>
-    <description><![CDATA[ github.com/taimourz/weatherapp Here I will add details about the weatherapp. ]]></description>
-    <pubDate>Wed, 22 Oct 2025 19:00:00 GMT</pubDate>
+    <title>DDIA Chapter 1</title>
+    <link>https:///myspace/blog/system-design/ddiachapter1</link>
+    <guid>https:///myspace/blog/system-design/ddiachapter1</guid>
+    <description><![CDATA[ Introduction This chapter discusses three important aspects when it comes to building data intensive applications i.e reliablity, scalability and maintainability. ]]></description>
+    <pubDate>Sat, 04 Oct 2025 19:00:00 GMT</pubDate>
+  </item><item>
+    <title>DDIA Chapter 8</title>
+    <link>https:///myspace/blog/system-design/ddiachapter8</link>
+    <guid>https:///myspace/blog/system-design/ddiachapter8</guid>
+    <description><![CDATA[ Introduction The main idea in this chapter is that distributed systems are prone to failure for many reasons (nodes, clocks, network) unlike a single computer where programs that are deterministic (output is predictable). ]]></description>
+    <pubDate>Tue, 30 Sep 2025 19:00:00 GMT</pubDate>
+  </item><item>
+    <title>Notes</title>
+    <link>https:///myspace/notes/</link>
+    <guid>https:///myspace/notes/</guid>
+    <description><![CDATA[ Coming Soon…. ]]></description>
+    <pubDate>Thu, 25 Sep 2025 19:00:00 GMT</pubDate>
+  </item><item>
+    <title>Tips and Tricks to Ace your IELTS exam</title>
+    <link>https:///myspace/blog/random/ielts</link>
+    <guid>https:///myspace/blog/random/ielts</guid>
+    <description><![CDATA[  Introduction This article will outline some tips and tricks that helped me out during my preparation. ]]></description>
+    <pubDate>Sun, 21 Sep 2025 19:00:00 GMT</pubDate>
   </item><item>
     <title>Projects</title>
     <link>https:///myspace/projects/</link>
     <guid>https:///myspace/projects/</guid>
-    <description><![CDATA[ I love making things! I write about them here. ]]></description>
+    <description><![CDATA[  Weather App (Github) Tech: Nodejs A weather app that Geocodes user-input locations using Weatherstack API to latitude/longitude and retrieves live weather data using Mapbox API. ]]></description>
     <pubDate>Thu, 31 Aug 2023 19:00:00 GMT</pubDate>
   </item>
     </channel>
