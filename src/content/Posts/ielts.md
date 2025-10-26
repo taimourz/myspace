@@ -7,8 +7,6 @@ date: 2025-09-22
 ![[ieltscover.jpg]]
 
 
-## Introduction
-
 This article will outline some tips and tricks that helped me out during my preparation. My overall band was 7.5 (L: 9, R: 7.5, W:7, S: 7)
 
 Most of these are from [IELTS Advantage youtube channel](https://www.youtube.com/@Ieltsadvantage) and some from my own experience. If you are someone preparing for IELTS, I would suggest you to stick to this one channel since it has quality content unlike other creators who give incorrect tips and misinformation.
@@ -60,11 +58,7 @@ Reading is easy in the sense that you have the choice to manage the time on your
 
 Before doing any mocks tests, watch this [IELTS Advantage reading video](https://www.youtube.com/watch?v=Kch2Tb_T2Pg) and take your own notes. It has all the question types with strategies on how to attempt them. This video helped me to score 8 on reading mocks
 
-
-
-<!-- <div class="">
-  <img src="/assets/ieltsreading.png" alt="My Profile Picture" />
-</div> -->
+![[ieltsreading.png]]
 
 
 ### My reading strategy

@@ -1,21 +1,19 @@
-import { QuartzComponentConstructor, QuartzComponentProps } from "./types"
+import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import style from "./styles/footer.scss"
 import { version } from "../../package.json"
+import { i18n } from "../i18n"
 
 interface Options {
   links: Record<string, string>
 }
 
 export default ((opts?: Options) => {
-  function Footer({ displayClass }: QuartzComponentProps) {
+  const Footer: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
     const year = new Date().getFullYear()
     const links = opts?.links ?? []
     return (
       <footer class={`${displayClass ?? ""}`}>
         <hr />
-        <p>
-          Created by <a href="https://github.com/sidney-eliot">Sidney</a> with <a href="https://github.com/jackyzha0/quartz">Quartz v{version}</a>, © {year}
-        </p>
         <ul>
           {Object.entries(links).map(([text, link]) => (
             <li>
@@ -23,6 +21,7 @@ export default ((opts?: Options) => {
             </li>
           ))}
         </ul>
+        <hr />
       </footer>
     )
   }
@@ -30,3 +29,4 @@ export default ((opts?: Options) => {
   Footer.css = style
   return Footer
 }) satisfies QuartzComponentConstructor
+``
