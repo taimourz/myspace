@@ -13,7 +13,7 @@ function updateNowPlaying() {
       }
 
       nowplaying.innerHTML = `
-        <div style="font-family: system-ui, sans-serif;">
+        <div class="desktop-only" style="font-family: system-ui, sans-serif;">
           <span>Recent listening:</span>
           <div style="display: flex; align-items: center; gap: 0.75rem;">
             <img
