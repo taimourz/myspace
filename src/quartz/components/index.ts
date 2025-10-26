@@ -20,6 +20,10 @@ import MobileOnly from "./MobileOnly"
 import RecentNotes from "./RecentNotes"
 import Breadcrumbs from "./Breadcrumbs"
 
+// Custom
+import NowPlaying from "./NowPlaying"
+import Links from "./Links"
+
 export {
   ArticleTitle,
   Content,
@@ -42,4 +46,8 @@ export {
   RecentNotes,
   NotFound,
   Breadcrumbs,
+
+  // Custom
+  Links,  
+  NowPlaying,  
 }

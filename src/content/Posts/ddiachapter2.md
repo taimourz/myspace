@@ -1,5 +1,5 @@
 ---
-title: DDIA Chapter 2
+title: Designing Data Intensive Applications Chapter 2
 date: 2025-10-01
 draft: true
 ---

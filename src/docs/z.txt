@@ -1,3 +1,0 @@
-npx quartz build --serve
-http://localhost:8080/
-npx quartz sync
