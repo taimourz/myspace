@@ -206,5 +206,3 @@ Multiple Landing Pages created with Pure Html Javascript and Scss
 >    </div>
 >  </div>
 ></div>
-
-[← Back](/previous-page){:target="_blank"}
