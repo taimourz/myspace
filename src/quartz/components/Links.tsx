@@ -22,19 +22,19 @@ export default ((userOpts?: Partial<Options>) => {
         <h3>{opts.title}</h3>
         <ul>
           <li>
-            <h3 style={{marginTop: 0, marginBottom: 0}}><a href="/myspace/posts">Posts</a></h3>
+            <h3 style={{marginTop: 0, marginBottom: 0}}><a href="/portfolio/posts">Posts</a></h3>
             <i>my longer form thoughts</i>
           </li>
           <li>
-            <h3 style={{marginTop: 0, marginBottom: 0}}><a href="/myspace/projects">Projects</a></h3>
+            <h3 style={{marginTop: 0, marginBottom: 0}}><a href="/portfolio/projects">Projects</a></h3>
             <i>cool things I've made</i>
           </li>
           <li>
-            <h3 style={{marginTop: 0, marginBottom: 0}}><a href="/myspace/life">Life</a></h3>
+            <h3 style={{marginTop: 0, marginBottom: 0}}><a href="/portfolio/life">Life</a></h3>
             <i>where I write about my adventures</i>
           </li>          
           <li>
-            <h3 style={{marginTop: 0, marginBottom: 0}}><a href="/myspace/notes">Notes</a></h3>
+            <h3 style={{marginTop: 0, marginBottom: 0}}><a href="/portfolio/notes">Notes</a></h3>
             <i>where I share what I've learned</i>
           </li>
         </ul>
