@@ -3,13 +3,13 @@ import * as Plugin from "./quartz/plugins"
 
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "My Space",
+    pageTitle: "Portfolio",
     enableSPA: false,
     enablePopovers: true,
     analytics: {
       provider: "plausible",
     },
-    baseUrl: "taimourz.github.io/myspace",
+    baseUrl: "taimourz.github.io/portfolio",
     ignorePatterns: ["private", ".obsidian"],
     defaultDateType: "created",
     theme: {
