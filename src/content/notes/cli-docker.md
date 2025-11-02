@@ -1,6 +1,6 @@
 ---
 title: Publishing a Docker container to the GitHub Container Registry
-date: 2025-01-10
+date: 2025-10-3
 ---
 
 if you have ever developed a cool application and wanted to make sure it runs on every platform, the easiest solution is to containerize and publish it. 
