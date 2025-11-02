@@ -6,6 +6,14 @@ article p, article li{
   line-height: 1.5 !important;
 }
 
+:root:not([saved-theme="dark"]) pre code[data-theme*="dark"] {
+  display: none;
+}
+
+:root[saved-theme="dark"] pre code[data-theme*="light"] {
+  display: none;
+}
+
 .tall-img {
   display: block;
   margin-left: auto;

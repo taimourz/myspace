@@ -176,7 +176,7 @@ Multiple Landing Pages created with Pure Html Javascript and Scss
 >    </div>
 >  </div>
 >  <div class="showcase-card">
->    <img src="/images/pricingpage2.png" alt="Dashboard">
+>    <img src="/images/pricingpage.png" alt="Dashboard">
 >    <div class="showcase-content">
 >      <div class="showcase-header">
 >        <h3>Pricing page component</h3>
