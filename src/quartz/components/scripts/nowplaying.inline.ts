@@ -20,7 +20,6 @@ async function updateMostPlayed() {
       const topRes = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&user=taimouraaa&api_key=a45d16476b5ff3e3162e000b9ed1038f&format=json&period=7day&limit=1`)
       const topData = await topRes.json()
       track = topData.toptracks?.track?.[0]
-      debugger
       if (!track) {
         nowplayingEl.innerHTML = ""
         return
