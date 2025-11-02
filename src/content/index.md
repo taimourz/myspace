@@ -20,11 +20,11 @@ Here you will find a mix of notes, longer/more thoughtful posts, and links to va
 </div>
 
 
-This site is constantly shifting, but here are some things you may be interested in
+Here are some things you may be interested in
 - [Posts](/posts), a selection of my longer-form writing and thoughts
 - [Projects](/projects) - over the years I've built a lot of things, Here are some of my personal projects
 - [Life](/life), where I'm writing about my travels, adventures, and life in general
-- [Notes](/notes), where I write about things I'm working on and exploring. They're not supposed to be as high-quality as a post, but I'll be publishing them much more often.
+- [Notes](/notes), where I write about things I'm working on and exploring. 
 
 ## Work
 

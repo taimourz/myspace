@@ -3,10 +3,7 @@ title: Publishing a Docker container to the GitHub Container Registry
 date: 2025-01-10
 ---
 
-
-*Part of [[Feature List]]*
-
-if you have ever developed a cool application and wanted to make sure it runs on every platform, the easiest solution is to containerize it and publish it. 
+if you have ever developed a cool application and wanted to make sure it runs on every platform, the easiest solution is to containerize and publish it. 
 
 Recently, I created a small Notes CLI app, and I decided to package it into a Docker image so anyone can run it with a single command. In this post, I’ll show you how you can do the same for your own project.
 
