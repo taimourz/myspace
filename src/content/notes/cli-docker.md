@@ -3,9 +3,9 @@ title: Publishing a Docker container to the GitHub Container Registry
 date: 2025-10-3
 ---
 
-if you have ever developed a cool application and wanted to make sure it runs on every platform, the easiest solution is to containerize and publish it. 
+If you have ever developed a cool application and wanted to share it and make sure it runs on every platform, the easiest solution is to containerise and publish it. 
 
-Recently, I created a small Notes CLI app, and I decided to package it into a Docker image so anyone can run it with a single command. In this post, I’ll show you how you can do the same for your own project.
+Recently, I created a small [Notes CLI app](https://github.com/taimourz/Notes_app_cli), and I decided to package it into a Docker image so anyone can run it with a single command. In this post, I’ll show you how you can do the same for your own project.
 
 > [!info]- Click Here to see Demo of notes app
 >
@@ -16,11 +16,11 @@ Recently, I created a small Notes CLI app, and I decided to package it into a Do
 ### Create a Dockerfile
 
 ```dockerfile
-#I have used alphine here instead of ubuntu b/c it's very lightweight and fast
+#I have used alpine here instead of ubuntu b/c it's very lightweight and fast
 FROM node:20-alpine
 # create app folder
 WORKDIR /app
-# Copy package.json and package-json.lock into app folder
+# Copy package.json and package-lock.json into app folder
 COPY package*.json ./
 # we use --production flag b/c we dont want dev dependencies like nodemon
 RUN npm install --production
