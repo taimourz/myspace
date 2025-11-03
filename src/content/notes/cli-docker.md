@@ -1,6 +1,7 @@
 ---
 title: Publishing a Docker container to the GitHub Container Registry
 date: 2025-11-3
+tags: docker, github, nodejs, notes
 ---
 
 If you have ever developed a cool application and wanted to share it and make sure it runs on every platform, the easiest solution is to containerise and publish it. 

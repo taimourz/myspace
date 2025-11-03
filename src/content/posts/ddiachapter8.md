@@ -1,6 +1,7 @@
 ---
 title: Designing Data Intensive Applications Chapter 8
 date: 2025-10-01
+tags: system-design, posts
 ---
 
 ## Introduction
