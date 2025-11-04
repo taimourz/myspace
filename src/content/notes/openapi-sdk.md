@@ -3,6 +3,7 @@ title: Building an OpenAPI SDK Generator and publishing Your First Ruby Gem
 date: 2025-11-04
 author: Taimour
 tags: ruby, github, notes
+draft: true
 ---
 
 Have you ever wondered how companies like Stripe, Twilio, or GitHub provide client libraries for multiple programming languages? They use SDK generators! In this tutorial, I'll walk you through building `openapi_sdk_generator` - a Ruby gem that reads an OpenAPI specification and automatically creates client libraries in multiple languages.
