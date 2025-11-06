@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.container {
+  width: 600px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+}
+#myCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <canvas id='myCanvas' width='600' height='200'></canvas>
+</div>
+<script>
+const text = 'projects';
+const fontWidth = 54;
+const fontHeight = 71;
+const letters = 8;
+const spacing = 20; // Gap between end of "projects" and start of next "projects"
+let x = [];
+let char = [];
+let wiggle = 30;
+let counter = 0;
+let bitmap = new Image();
+bitmap.src = 'font.png';
+let canvas = document.getElementById('myCanvas');
+let context = canvas.getContext('2d');
+
+const textWidth = letters * fontWidth;
+const totalCycleWidth = textWidth + spacing;
+
+// Initialize - start from right side of container
+for (let n = 0; n < letters; n++) {
+  char[n] = text.charCodeAt(n) - 97;
+  x[n] = canvas.width + n * fontWidth;
+}
+
+bitmap.onload = function() {
+  window.requestAnimationFrame(scroll);
+};
+ 
+function scroll() {
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  
+  for (let n = 0; n < letters; n++) {
+    let y = 50 + wiggle * Math.sin(n + counter / 6.28);
+    context.drawImage(bitmap, char[n] * fontWidth, 0, fontWidth, fontHeight, x[n], y, fontWidth, fontHeight);
+    x[n]--;
+    
+    // When the last character (s) completely exits the left side
+    if (n === letters - 1 && x[n] < -fontWidth) {
+      // Reset all characters to start from right side again
+      for (let i = 0; i < letters; i++) {
+        x[i] = canvas.width + i * fontWidth;
+      }
+    }
+  }
+  
+  counter++;
+  // Use modulo to prevent counter from growing infinitely
+  if (counter > 10000) counter = 0;
+  
+  window.requestAnimationFrame(scroll);
+}
+</script>
+</body>
+</html>
