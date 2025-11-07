@@ -1,6 +1,6 @@
 ---
 title: Build and Publish an OpenAPI SDK Generator Gem in Ruby
-date: 2025-11-04
+date: 2025-11-07
 author: Taimour
 tags: ruby, github, notes
 draft: false
@@ -375,7 +375,7 @@ Finally push the updated gem:
 
 ``` bash
 gem build openapi_sdk_generator.gemspec
-gem push openapi_sdk_generator_gem-0.1.0.gem
+gem push openapi_sdk_generator_gem-0.1.1.gem
 ```
 
 ## Resources
