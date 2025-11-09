@@ -1,6 +1,6 @@
 ---
 title: Build and Publish an OpenAPI SDK Generator Gem in Ruby
-date: 2025-11-07
+date: 2025-11-10
 author: Taimour
 tags: ruby, github, notes
 draft: false
@@ -8,15 +8,26 @@ draft: false
 
 ## Introduction
 
-OpenAPI is a global standard for describing REST APIs. The descriptions are made either in yaml or json format. 
+### Why do we even need an SDK generator ?
+ Lets see an example of Stripe. They maintain SDKs across so many languages without constantly needing to sync updates. They do this by using SDK generators. When Stripe updates their API, they don't manually rewrite code in seven different languages. Instead, they use code generation tools that read their API specification and automatically produce type-safe client libraries for each language.
 
-It contains information such as general description, metadata about the swagger version, and security information about how to access the API. It also lets us define paths (API endpoints) and the definitions (data structures for requests and responses). And here, OpenAPI allows the definition and usage of references.
+Here is an example of their [openapi specification](https://github.com/stripe/openapi/tree/master/openapi)
 
-> For example, you have a standard response object for all API endpoints. Instead of defining this data structure everywhere for all endpoints, we can just define it once in the definitions section, and then include a reference from the endpoint to this definition.
+### What is OpenAPI
+[OpenAPI](https://github.com/OAI/OpenAPI-Specification) is a global standard for describing REST APIs. The descriptions are made either in yaml or json format. 
 
-We can see it in this Example file [petstore.yaml ↗](https://github.com/OAI/OpenAPI-Specification/blob/16a2a701f6200ea6e78394753a74d4809374a7c8/_archive_/schemas/v3.0/pass/petstore-expanded.yaml) . [source ↗](https://petstore.swagger.io/). We will use this yaml file in this article.
 
-A small sample API specification:
+It contains information such as general description, metadata about the swagger version, and security information about how to access the API. It also lets us define paths (API endpoints) and the definitions (data structures for requests and responses). 
+
+One powerful feature is references. Instead of duplicating the same data structure across multiple endpoints, you define it once in the components/schemas section and reference it wherever needed.
+
+> Example: If you have a standard error response object used by all API endpoints, you can define it once as `#/components/schemas/ErrorResponse` and reference it from every endpoint. When you need to update the error structure, you change it in one place and all references automatically reflect the update
+> 
+> see `$ref` in this  [petstore.yaml ↗](https://github.com/OAI/OpenAPI-Specification/blob/16a2a701f6200ea6e78394753a74d4809374a7c8/_archive_/schemas/v3.0/pass/petstore-expanded.yaml) example taken from [swagger ↗](https://petstore.swagger.io/). 
+
+in this project we have used this petstore example
+
+A small sample of how an API specification loooks like:
 
 ```yaml
 openapi: 3.0.0
@@ -92,12 +103,48 @@ components:
         └── petstore.yaml
 ```
 
+## Workflow Diagram
+
+
+
+``` bash
+             ┌────────────────────────────┐
+             |  OpenAPI Spec (YAML/JSON)  |
+             └────────────┬───────────────┘
+                          v
+                      ┌────────────┐
+                      |  Parser    |
+                      | parser.rb  |
+                      └────────────┘
+            Extracts: base_url, endpoints, models
+                           | 
+                           v
+                 ┌───────────────────────┐
+                 |     Generator Base    |
+                 |     generator.rb      |
+                 └────────────┬──────────┘
+                provides shared utilities
+        
+             ┌────────────────┴───────────────┐
+             v                                v
+  ┌─────────────────────┐             ┌──────────────────────┐ 
+  |    RubyGenerator    |             |  JavascriptGenerator | 
+  └─────────────────────┘             └──────────────────────┘ 
+     uses .erb templates                   uses .erb templates
+( ruby_client.erb + ruby_model.erb )     ( javascript_client.erb )
+          |                                         | 
+          |                                         | 
+          |                                         | 
+ ┌─────────────────────┐                   ┌──────────────────┐ 
+ |  Generated Ruby SDK |                   | Generated JS SDK |
+ └─────────────────────┘                   └──────────────────┘
+```
+
 ## Step 1: Architecture
 
+### 1. The Parser
 
-### 1. The Parser - [parser.rb ↗](https://github.com/taimourz/openapi_sdk_generator_gem/blob/main/lib/openapi_sdk_generator/parser.rb)
-
-The parser is the brain of our generator. It reads OpenAPI specification file - [petstore.yaml ↗](https://github.com/taimourz/openapi_sdk_generator_gem/blob/main/test/fixtures/petstore.yaml) 
+The [parser.rb ↗](https://github.com/taimourz/openapi_sdk_generator_gem/blob/main/lib/openapi_sdk_generator/parser.rb) is the brain of our generator. It reads OpenAPI specification file - [petstore.yaml ↗](https://github.com/taimourz/openapi_sdk_generator_gem/blob/main/test/fixtures/petstore.yaml) 
 
 It has the ability to parse input both from a file and a url. Once it has all the content, it then Extracts API endpoints, parameters, response schemas and finally parses data models and their properties
 
@@ -167,7 +214,7 @@ end
 ### 2. Language-Specific Generators
  
 
-All of our language-specific generators i.e ```ruby_generator.rb and javascript_generator.eb``` will inherit from [ generator.rb ↗](https://github.com/taimourz/openapi_sdk_generator_gem/blob/main/lib/openapi_sdk_generator/generator.rb). It provides common utility methods and enforces rules that all its subclasses must follow.
+All of our language-specific generators i.e ```ruby_generator.rb and javascript_generator.eb``` will inherit from [ generator.rb ↗](https://github.com/taimourz/openapi_sdk_generator_gem/blob/main/lib/openapi_sdk_generator/generator.rb). It provides common utility methods and enforces rules that all its subclasses must follow. eg, they must implement methods `def generate` and `def write_to_directory`
 
 #### Ruby Generator - [ruby_generator.rb ↗](https://github.com/taimourz/openapi_sdk_generator_gem/blob/main/lib/openapi_sdk_generator/generators/ruby_generator.rb)
 
@@ -271,11 +318,80 @@ end
 
 we have prewritten templates that get dynamically populated during the runtime. These templates are used by our ruby and javascript generators
 
-We have a total 3 templates
+
+For example Lets see how this [ruby_model.erb ↗](https://github.com/taimourz/openapi_sdk_generator_gem/blob/main/lib/openapi_sdk_generator/templates/ruby_model.erb) generates output
+
+
+``` rb
+# <%= @current_model[:name] %>
+class <%= camelize(@current_model[:name]) %>
+  <%- @current_model[:properties].each do |name, prop| -%>
+  attr_accessor :<%= sanitize_name(name) %>
+  <%- end -%>
+  
+  def initialize(attributes = {})
+    <%- @current_model[:properties].each do |name, prop| -%>
+    @<%= sanitize_name(name) %> = attributes['<%= name %>'] || attributes[:<%= sanitize_name(name) %>]
+    <%- end -%>
+  end
+  
+  def to_h
+    {
+      <%- @current_model[:properties].keys.each_with_index do |name, index| -%>
+      '<%= name %>' => @<%= sanitize_name(name) %><%= index < @current_model[:properties].keys.length - 1 ? ',' : '' %>
+      <%- end -%>
+    }
+  end
+  
+  def to_json(*args)
+    to_h.to_json(*args)
+  end
+  
+  def self.from_json(json)
+    data = JSON.parse(json)
+    new(data)
+  end
+end
+```
+
+The output generated file:
+
+``` rb
+# Pet
+class Pet
+  attr_accessor :name
+  attr_accessor :tag
+  attr_accessor :id
+  
+  def initialize(attributes = {})
+    @name = attributes['name'] || attributes[:name]
+    @tag = attributes['tag'] || attributes[:tag]
+    @id = attributes['id'] || attributes[:id]
+  end
+  
+  def to_h
+    {
+      'name' => @name,
+      'tag' => @tag,
+      'id' => @id
+    }
+  end
+  
+  def to_json(*args)
+    to_h.to_json(*args)
+  end
+  
+  def self.from_json(json)
+    data = JSON.parse(json)
+    new(data)
+  end
+end
+```
+
+We other templates we have used are these:
 
 1. [ruby_client.erb ↗](http://github.com/taimourz/openapi_sdk_generator_gem/blob/main/lib/openapi_sdk_generator/templates/ruby_client.erb)
-2. [ruby_model.erb ↗](https://github.com/taimourz/openapi_sdk_generator_gem/blob/main/lib/openapi_sdk_generator/templates/ruby_model.erb)
-3. [javascript_client.erb ↗](https://github.com/taimourz/openapi_sdk_generator_gem/blob/main/lib/openapi_sdk_generator/templates/javascript_client.erb)
+2. [javascript_client.erb ↗](https://github.com/taimourz/openapi_sdk_generator_gem/blob/main/lib/openapi_sdk_generator/templates/javascript_client.erb)
 
 
 ## Step 2: Running the application
