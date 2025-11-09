@@ -106,7 +106,7 @@ a {
     }
     &.tag-link {
       &::before {
-        content: "#";
+        content: "";
       }
     }
   }
@@ -224,6 +224,7 @@ a {
       z-index: 1;
       grid-area: grid-sidebar-left;
       flex-direction: column;
+      gap: 2rem;
       @media all and ($mobile) {
         gap: 0;
         align-items: center;

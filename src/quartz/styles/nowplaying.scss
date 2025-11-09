@@ -79,162 +79,24 @@
     display: none;
   }
 }
-// // Mobile: up to 450px
-// @media all and (max-width: 450px) {
-//   .page > #quartz-body .sidebar.left {
-//     display: flex !important;
-//     flex-direction: row !important;
-//     flex-wrap: wrap !important;
-//     justify-content: center !important;
-//     align-items: center !important;
-//     gap: 0.75rem !important;
-//     position: initial !important;
-//     height: auto !important;
-//     padding: 1rem !important;
-//   }
-  
-//   // Title on row 1 (centered, full width)
-//   .page > #quartz-body .sidebar.left > .page-title {
-//     flex-basis: 100% !important;
-//     width: 100% !important;
-//     order: 1;
-//     text-align: center;
-//     margin: 0 0 0.5rem 0;
-//   }
-  
-//   // Search on row 2
-//   .page > #quartz-body .sidebar.left > .search {
-//     flex: 0 0 auto;
-//     order: 2;
-//     margin: 0 0.5rem 0 0;
-//   }
-  
-//   // Darkmode icon on row 2 (next to search)
-//   .page > #quartz-body .sidebar.left > .darkmode {
-//     flex: 0 0 auto;
-//     order: 3;
-//     margin: 0;
-//   }
-  
-//   // NowPlaying on row 3 (centered, full width)
-//   .page > #quartz-body .sidebar.left > #nowplaying {
-//     flex-basis: 100% !important;
-//     width: 100% !important;
-//     max-width: 100% !important;
-//     order: 4;
-//     margin-top: 0.75rem;
-//     display: flex;
-//     justify-content: center;
-//     overflow: hidden;
-//   }
-  
-//   // Scale down nowplaying content on mobile
-//   .page > #quartz-body .sidebar.left > #nowplaying > div {
-//     max-width: 100%;
-//     overflow: hidden;
-//   }
-  
-//   .page > #quartz-body .sidebar.left > #nowplaying img {
-//     width: 2.5rem !important;
-//     height: 2.5rem !important;
-//   }
-  
-//   .page > #quartz-body .sidebar.left > #nowplaying span,
-//   .page > #quartz-body .sidebar.left > #nowplaying div {
-//     font-size: 0.85rem;
-//   }
-  
-//   // Hide spacer
-//   .page > #quartz-body .sidebar.left > .spacer {
-//     display: none !important;
-//   }
-  
-//   // Hide desktop-only links
-//   .page > #quartz-body .sidebar.left > .links {
-//     display: none !important;
-//   }
-// }
 
-// // Tablet: 451px to 800px
-// @media all and (min-width: 451px) and (max-width: 800px) {
-//   .page > #quartz-body .sidebar.left {
-//     display: grid !important;
-//     grid-template-columns: 1fr 1fr 1fr !important;
-//     grid-template-rows: auto auto !important;
-//     align-items: start !important;
-//     gap: 0.5rem 1rem !important;
-//     position: initial !important;
-//     height: auto !important;
-//     padding: 1rem !important;
-//   }
-  
-//   // Column 1: Title (spans 2 rows)
-//   .page > #quartz-body .sidebar.left > .page-title {
-//     grid-column: 1 / 2;
-//     grid-row: 1 / 3;
-//     align-self: center;
-//     text-align: left;
-//     margin: 0;
-//   }
-  
-//   // Column 2, Row 1: Search
-//   .page > #quartz-body .sidebar.left > .search {
-//     grid-column: 2 / 3;
-//     grid-row: 1 / 2;
-//     justify-self: center;
-//     margin: 0;
-//   }
-  
-//   // Column 2, Row 2: Darkmode
-//   .page > #quartz-body .sidebar.left > .darkmode {
-//     grid-column: 2 / 3;
-//     grid-row: 2 / 3;
-//     justify-self: center;
-//     margin: 0;
-//   }
-  
-//   // Column 3: NowPlaying (spans 2 rows)
-//   .page > #quartz-body .sidebar.left > #nowplaying {
-//     grid-column: 3 / 4;
-//     grid-row: 1 / 3;
-//     align-self: center;
-//     justify-self: end;
-//     max-width: 200px;
-//     overflow: hidden;
-//     margin: 0;
-//   }
-  
-//   // Scale down nowplaying on tablet
-//   .page > #quartz-body .sidebar.left > #nowplaying > div {
-//     max-width: 100%;
-//     overflow: hidden;
-//   }
-  
-//   .page > #quartz-body .sidebar.left > #nowplaying img {
-//     width: 2.5rem !important;
-//     height: 2.5rem !important;
-//   }
-  
-//   .page > #quartz-body .sidebar.left > #nowplaying span,
-//   .page > #quartz-body .sidebar.left > #nowplaying div {
-//     font-size: 0.8rem;
-//   }
-  
-//   // Hide spacer
-//   .page > #quartz-body .sidebar.left > .spacer {
-//     display: none !important;
-//   }
-  
-//   // Hide desktop-only links
-//   .page > #quartz-body .sidebar.left > .links {
-//     display: none !important;
-//   }
-// }
 
-// // Desktop: above 800px - restore default Quartz behavior
-// @media all and (min-width: 801px) {
-//   .page > #quartz-body .sidebar.left > #nowplaying {
-//     width: 100%;
-//     max-width: 100%;
-//   }
-// }
+/* dark icon should replace nowplaying if not available */
+
+@media all and (min-width: 451px) and (max-width: 800px) {
+  .page > #quartz-body .sidebar.left:not(:has(#nowplaying)) {
+    grid-template-columns: auto 1fr auto; /* still 3 columns */
+  }
+
+  .page > #quartz-body .sidebar.left:not(:has(#nowplaying)) > .darkmode {
+    grid-column: 3;
+    grid-row: 1 / 3;
+    justify-self: end;
+  }
+}
+
+@media all and (max-width: 450px) {
+  .page > #quartz-body .sidebar.left:not(:has(#nowplaying)) > .darkmode {
+    order: 999; 
+  }
+}

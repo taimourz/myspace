@@ -23,6 +23,7 @@ import Breadcrumbs from "./Breadcrumbs"
 // Custom
 import NowPlaying from "./NowPlaying"
 import Links from "./Links"
+import ConditionalRender from "./ConditionalRender";
 
 export {
   ArticleTitle,
@@ -46,6 +47,7 @@ export {
   RecentNotes,
   NotFound,
   Breadcrumbs,
+  ConditionalRender,
 
   // Custom
   Links,  

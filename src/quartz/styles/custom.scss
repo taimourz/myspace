@@ -15,6 +15,11 @@ article p, article li{
   display: none;
 }
 
+:root[saved-theme="dark"] code:not(pre code) {
+  background-color: #2d1a2e; 
+  color: #e06c75;
+}
+
 .tall-img {
   display: block;
   margin-left: auto;
