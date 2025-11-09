@@ -140,8 +140,8 @@ export function renderPage(
               <Content {...componentData} />
             </div>
             {RightComponent}
+            <Footer {...componentData} />
           </Body>
-          <Footer {...componentData} />
         </div>
       </body>
       {pageResources.js
