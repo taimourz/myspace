@@ -21,10 +21,23 @@ Here you will find a mix of notes, longer/more thoughtful posts, and links to va
 
 
 Here are some things you may be interested in
-- [Posts](/posts), a selection of my longer-form writing and thoughts
+- [Posts](/posts), where I share what I've learned
+>
 - [Projects](/projects) - over the years I've built a lot of things, Here are some of my personal projects
+  - OpenAPI SDK Generator Gem
+  - Ecommerce Store - Voice Navigation
+  - Weather App
+  - Notes App Cli
+  - Online Store mobile App
+  - Landing Pages - Multiple Businesses
+  - Chess Game
+>  
+- [System Design](/system-design) My learning notes on system Design. 
+  - Currently, Reading Designing Data Intensive Applications
+>
+- [Random](/random) My learning notes about random topics I am interested in.
+>
 - [Life](/life), where I'm writing about my travels, adventures, and life in general
-- [Notes](/notes), where I write about things I'm working on and exploring. 
 
 ## Work
 

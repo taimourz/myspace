@@ -2,7 +2,7 @@
 title: Build and Publish an OpenAPI SDK Generator Gem in Ruby
 date: 2025-11-10
 author: Taimour
-tags: ruby, github, notes
+tags: ruby, github, posts
 draft: false
 ---
 

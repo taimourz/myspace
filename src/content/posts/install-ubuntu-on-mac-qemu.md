@@ -1,6 +1,7 @@
 ---
 title: Setup VMs using QEMU and Test using ssh, netcat
 date: 2025-11-11
+tags: linux, posts
 ---
 
 ## Introduction
